@@ -22,8 +22,8 @@ class ShareCustomLiveTemplates: AnAction() {
             readAction {
                 val path = project.templatesProjectPath
                 val file = VfsUtil.findFile(path, true)
-                val projectView = ProjectView.getInstance(project)
                 launch(Dispatchers.IO) {
+                    val projectView = ProjectView.getInstance(project)
                     projectView.select(file, file, true)
                     projectView.refresh()
                 }

@@ -11,7 +11,7 @@ The plugin allows to share custom IntelliJ IDEA live templates with a team.
 4. Commit shared live templates to your repository
 
 ## Importing Live Templates
-After that, your team members with plugin installed will import these live templates automatically when they open project next time.
+Everybody with plugin installed who open repository will import shared live templates automatically when they open project next time.
 
 ### Manual import
 There is the action to import live templates manually.

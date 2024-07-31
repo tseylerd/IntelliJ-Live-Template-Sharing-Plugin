@@ -1,12 +1,6 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32.0845 7.94025V4H24.0203V7.9896H16.029V4H7.91553V7.94025H4V36H16.0044V32.0045C16.0058 30.9457 16.4274 29.9308 17.1766 29.1826C17.9258 28.4345 18.9412 28.0143 20 28.0143C21.0588 28.0143 22.0743 28.4345 22.8234 29.1826C23.5726 29.9308 23.9942 30.9457 23.9956 32.0045V36H36V7.94025H32.0845Z"
-          fill="url(#paint0_linear)"/>
-    <defs>
-        <linearGradient id="paint0_linear" x1="2.94192" y1="4.89955" x2="37.7772" y2="39.7345"
-                        gradientUnits="userSpaceOnUse">
-            <stop offset="0.15937" stop-color="#3BEA62"/>
-            <stop offset="0.5404" stop-color="#3C99CC"/>
-            <stop offset="0.93739" stop-color="#6B57FF"/>
-        </linearGradient>
-    </defs>
+<svg width="561" height="561" viewBox="0 0 561 561" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M195 230C195 216.193 206.193 205 220 205H258V226H220C217.791 226 216 227.791 216 230V354C216 356.209 217.791 358 220 358H344C346.209 358 348 356.209 348 354V230C348 227.791 346.209 226 344 226H306V205H345C358.807 205 370 216.193 370 230V355C370 368.807 358.807 380 345 380H220C206.193 380 195 368.807 195 355V230Z" fill="black"/>
+<rect x="272" y="142" width="20" height="160" fill="black"/>
+<rect x="268.86" y="144.142" width="20" height="60" transform="rotate(-45 268.86 144.142)" fill="black"/>
+<rect x="283" y="130" width="20" height="60" transform="rotate(45 283 130)" fill="black"/>
 </svg>

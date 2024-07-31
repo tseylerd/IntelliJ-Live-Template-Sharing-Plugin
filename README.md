@@ -16,3 +16,7 @@ After that, your team members with plugin installed will import these live templ
 ### Manual import
 There is the action to import live templates manually.
 Invoke the `Import Project Live Templates` action from `Go to Action` (`Ctrl/Cmd + Shift + A`)
+
+## Limitations
+- The plugin works by copying shared live templates groups to the IDE settings, so technically when you open the project with shared live templates the plugin will add shared groups from project to your IDE settings.
+- The plugin supports **only custom** live templates group. If you add live templates to predefined groups, they will not be shared.

@@ -4,9 +4,9 @@
     <vendor email="tseylerd@gmail.com">Dmitriy Tseyler</vendor>
     <description><![CDATA[
     <b>Plugin allows sharing live templates by commiting them to VCS.</b>
-    <p>Project live templates are stored in `.idea` directory and shared with everybody working on the same repository.</p>
+    <p>Project live templates are stored in <code>.idea</code> directory and shared with everybody working on the same repository.</p>
     <p>Plugin imports live templates automatically on project opening.</p>
-    <p>Also, it adds two actions:</p>
+    Also, it adds two actions:
     <ul>
         <li><b>Import Project Live Templates</b> - imports project live templates from project to IDE settings</li>
         <li><b>Share Custom Live Templates</b> - shares custom live templates from IDE settings to project</li>

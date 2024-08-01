@@ -3,9 +3,7 @@
 package com.tseyler.livetemplates.sharing
 
 import com.intellij.codeInsight.template.impl.TemplateSettings
-import com.intellij.configurationStore.schemeManager.SchemeManagerFactoryBase
 import com.intellij.openapi.application.PathManager
-import com.intellij.openapi.options.SchemeManagerFactory
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
 import java.nio.file.Files
@@ -53,7 +51,6 @@ suspend fun syncTemplatesFromProject(project: Project) {
         !isDefaultTemplateGroup(path)
     }
     if (sharedFiles.isNotEmpty()) {
-        syncToIde()
         addSharedFiles(project, sharedFiles)
     }
 }
@@ -144,16 +141,6 @@ private fun hash(path: Path): String {
     val bytes = Files.readAllBytes(path)
     val digest = MessageDigest.getInstance("SHA-256").digest(bytes)
     return Base64.encode(digest)
-}
-
-private fun syncToIde() {
-    val instance = SchemeManagerFactory.getInstance()
-    instance as SchemeManagerFactoryBase
-    instance.process { f ->
-        if (f.fileSpec == "templates") {
-            f.reload()
-        }
-    }
 }
 
 data class SyncedFile(val hash: String, val fileName: String)

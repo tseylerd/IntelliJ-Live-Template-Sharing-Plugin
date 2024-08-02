@@ -23,5 +23,5 @@ Technically when a project with shared live templates is opened the plugin will 
 And when the project is closed copied templates will be removed from IDE settings in case they were not modified.
 
 ## Limitations
-- If you open multiple projects and some of them contain templates with the same name, only first loaded project's templates with the same name will be synced.
+- If you open multiple projects and some of them contain templates with the same name, only first loaded project's templates with the same name will be used.
 - The plugin supports **only custom** live templates group. If you add live templates to predefined groups, they will not be shared.

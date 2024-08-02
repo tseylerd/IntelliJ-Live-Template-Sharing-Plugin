@@ -3,8 +3,8 @@
     <name>Live Templates Sharing</name>
     <vendor email="tseylerd@gmail.com">Dmitriy Tseyler</vendor>
     <description><![CDATA[
-    <b>Plugin allows sharing live templates by commiting them to VCS.</b>
-    <p>Project live templates are stored in <code>.idea</code> directory and shared with everybody working on the same repository.</p>
+    <b>Plugin allows sharing live templates in project by putting them to <pre><code>.idea/liveTemplates</pre></code></b>
+    <p>Project live templates are stored in <code>.idea</code> directory and shared with everybody working on the same project.</p>
     <p>Plugin imports live templates automatically on project opening and removes them from IDE settings when project is closed.</p>
     Also, it adds two actions:
     <ul>

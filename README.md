@@ -1,5 +1,5 @@
 # IntelliJ Live Templates Sharing Plugin
-The plugin allows to share custom IntelliJ IDEA live templates with a team.
+The plugin allows to share custom IntelliJ IDEA live templates with a team by putting them to `.idea/liveTemplates` folder.
 
 ## Sharing Live Templates
 1. Create custom live template group in Settings and add your live templates there. Press `OK` to save the changes.  

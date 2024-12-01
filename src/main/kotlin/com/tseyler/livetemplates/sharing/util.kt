@@ -1,7 +1,6 @@
 package com.tseyler.livetemplates.sharing
 
 import com.intellij.codeInsight.template.impl.TemplateGroup
-import com.intellij.codeInsight.template.impl.TemplateImpl
 import com.intellij.codeInsight.template.impl.TemplateSettings
 import com.intellij.codeInsight.template.postfix.templates.EmptyPostfixTemplateProvider
 import com.intellij.codeInsight.template.postfix.templates.PostfixTemplatesUtils
@@ -60,7 +59,7 @@ suspend fun syncTemplatesFromProject(project: Project) {
         val instance = TemplateSettings.getInstance()
         val templateGroup = JDOMUtil.load(group)
         val groupName = templateGroup.getAttributeValue("group") ?: return@processTemplateGroupFiles false
-        if (instance.templateGroups.any { it.name == groupName }) {
+        if (instance.templateGroups.any { it.toString() == groupName }) {
             logger.info("Group already exists")
             return@processTemplateGroupFiles true
         }
@@ -71,7 +70,7 @@ suspend fun syncTemplatesFromProject(project: Project) {
             templateGroup.removeChild("template")
             currentTemplate = PostfixTemplatesUtils.readExternalLiveTemplate(templateGroup, EmptyPostfixTemplateProvider())
         }
-        val syncedGroup = instance.templateGroups.firstOrNull { it.name == groupName } ?: return@processTemplateGroupFiles true
+        val syncedGroup = instance.templateGroups.firstOrNull { it.toString() == groupName } ?: return@processTemplateGroupFiles true
         syncedGroups += syncedGroup
         true
     }
@@ -111,20 +110,17 @@ suspend fun saveTemplates() {
 
 private fun isDefaultTemplateGroup(path: Path): Boolean {
     val settings = TemplateSettings.getInstance()
-    val group = settings.templateGroups.find { it.name == path.fileName.nameWithoutExtension } ?: return false
-    return settings.templates.mapNotNull { settings.getDefaultTemplate(it) }.any { it.groupName == group.name }
+    val group = settings.templateGroups.find { it.toString() == path.fileName.nameWithoutExtension } ?: return false
+    return settings.templates.mapNotNull { settings.getDefaultTemplate(it) }.any { it.groupName == group.toString() }
 }
 
 private fun removeGroupFromSettings(synced: TemplateGroup) {
-    val groupFromSettings: TemplateGroup = TemplateSettings.getInstance().templateGroups.find { it.name == synced.name } ?: return
-    val elements: List<TemplateImpl> = groupFromSettings.elements
-    if (synced.elements == elements) {
-        logger.info("Removing group")
-        elements.forEach {
-            TemplateSettings.getInstance().removeTemplate(it)
-        }
-    } else {
-        logger.info("Group elements are changed")
+    val settings = TemplateSettings.getInstance()
+    val groupFromSettings: TemplateGroup = settings.templateGroups.find { it.toString() == synced.toString() } ?: return
+    val allTemplates = settings.templates
+    val templatesFromSettingsGroup = allTemplates.filter { groupFromSettings.containsTemplate(it.key, it.id) }
+    templatesFromSettingsGroup.forEach {
+        settings.removeTemplate(it)
     }
 }
 

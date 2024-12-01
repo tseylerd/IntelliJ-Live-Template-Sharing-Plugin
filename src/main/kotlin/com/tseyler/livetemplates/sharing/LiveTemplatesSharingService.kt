@@ -7,6 +7,8 @@ import kotlinx.coroutines.CoroutineScope
 @Service
 class LiveTemplatesSharingService(val scope: CoroutineScope) {
     companion object {
-        val scope: CoroutineScope = service<LiveTemplatesSharingService>().scope
+        val scope: CoroutineScope by lazy {
+            service<LiveTemplatesSharingService>().scope
+        }
     }
 }

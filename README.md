@@ -20,7 +20,7 @@ Invoke the `Import Project Live Templates` action from `Go to Action` (`Ctrl/Cmd
 ## Implementation
 The plugin works by copying shared live templates groups to the IDE settings.
 Technically when a project with shared live templates is opened the plugin will add groups from `.idea/liveTemplates` to the IDE settings. 
-And when the project is closed copied templates will be removed from IDE settings in case they were not modified.
+And when the project is closed copied templates will be removed from IDE settings.
 
 ## Limitations
 - If you open multiple projects and some of them contain templates with the same name, only first loaded project's templates with the same name will be used.

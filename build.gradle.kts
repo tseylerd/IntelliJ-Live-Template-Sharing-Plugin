@@ -1,14 +1,15 @@
 import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import org.jetbrains.intellij.platform.gradle.models.ProductRelease
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.24"
-    id("org.jetbrains.intellij.platform") version "2.1.0"
+    id("org.jetbrains.kotlin.jvm") version "2.1.0"
+    id("org.jetbrains.intellij.platform") version "2.6.0"
 }
 
 group = "com.tseyler.livetemplates.sharing"
-version = "1.1"
+version = "1.2"
 
 repositories {
     mavenCentral()
@@ -19,8 +20,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        create("IC", "2024.3")
-        instrumentationTools()
+        create("IC", "2025.1")
         pluginVerifier()
     }
 }
@@ -29,7 +29,7 @@ intellijPlatform {
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "242"
-            untilBuild = "243.*"
+            untilBuild = "252.*"
         }
     }
     pluginVerification {
@@ -40,7 +40,7 @@ intellijPlatform {
             }
             select {
                 sinceBuild = "242"
-                untilBuild = "243.*"
+                untilBuild = "252.*"
             }
         }
     }
@@ -52,6 +52,6 @@ tasks {
         targetCompatibility = "17"
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
+        compilerOptions.jvmTarget = JvmTarget.JVM_17
     }
 }

@@ -4,12 +4,12 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "2.1.0"
-    id("org.jetbrains.intellij.platform") version "2.6.0"
+    id("org.jetbrains.kotlin.jvm") version "2.2.21"
+    id("org.jetbrains.intellij.platform") version "2.11.0"
 }
 
 group = "com.tseyler.livetemplates.sharing"
-version = "1.2"
+version = "1.3"
 
 repositories {
     mavenCentral()
@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        create("IC", "2025.1")
+        intellijIdea("2025.3")
         pluginVerifier()
     }
 }
@@ -28,8 +28,8 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "242"
-            untilBuild = "252.*"
+            sinceBuild = "253"
+            untilBuild = "261.*"
         }
     }
     pluginVerification {
@@ -39,8 +39,8 @@ intellijPlatform {
                 types = listOf(IntelliJPlatformType.IntellijIdeaCommunity)
             }
             select {
-                sinceBuild = "242"
-                untilBuild = "252.*"
+                sinceBuild = "253"
+                untilBuild = "261.*"
             }
         }
     }

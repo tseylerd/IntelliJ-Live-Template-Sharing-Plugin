@@ -5,11 +5,11 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "2.2.21"
-    id("org.jetbrains.intellij.platform") version "2.11.0"
+    id("org.jetbrains.intellij.platform") version "2.18.1"
 }
 
 group = "com.tseyler.livetemplates.sharing"
-version = "1.3"
+version = "1.4"
 
 repositories {
     mavenCentral()
@@ -29,18 +29,16 @@ intellijPlatform {
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "253"
-            untilBuild = "261.*"
+            untilBuild = "262.*"
         }
     }
     pluginVerification {
         ides {
-            ProductReleasesValueSource {
-                channels = listOf(ProductRelease.Channel.RELEASE)
-                types = listOf(IntelliJPlatformType.IntellijIdeaCommunity)
-            }
             select {
+                types = listOf(IntelliJPlatformType.IntellijIdea)
+                channels = listOf(ProductRelease.Channel.RELEASE)
                 sinceBuild = "253"
-                untilBuild = "261.*"
+                untilBuild = "262.*"
             }
         }
     }

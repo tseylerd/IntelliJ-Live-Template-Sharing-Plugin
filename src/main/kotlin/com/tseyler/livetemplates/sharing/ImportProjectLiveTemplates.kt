@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 class ImportProjectLiveTemplates: AnAction() {
     override fun update(e: AnActionEvent) {
         val project = e.project
-        e.presentation.isEnabledAndVisible = project != null && project.templatesProjectPathIfExists != null
+        e.presentation.isEnabledAndVisible = project?.templatesProjectPathIfExists != null
     }
 
     override fun actionPerformed(e: AnActionEvent) {

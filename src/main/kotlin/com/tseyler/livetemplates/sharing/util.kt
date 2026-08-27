@@ -60,7 +60,7 @@ suspend fun syncTemplatesFromProject(project: Project) {
         val templateGroup = JDOMUtil.load(group)
         val groupName = templateGroup.getAttributeValue("group") ?: return@processTemplateGroupFiles false
         if (instance.templateGroups.any { it.toString() == groupName }) {
-            logger.info("Group already exists")
+            logger.info("Group already exists (sync from project)")
             return@processTemplateGroupFiles true
         }
         var currentTemplate = PostfixTemplatesUtils.readExternalLiveTemplate(templateGroup, EmptyPostfixTemplateProvider())
@@ -129,7 +129,7 @@ private suspend fun syncTemplateGroupsFiles(from: Path, to: Path, filter: (Path)
         ensurePathExists(to)
         val groupToCreate = to.resolve(fromTemplateGroup.fileName)
         if (Files.exists(groupToCreate)) {
-            logger.info("Group already exists")
+            logger.info("Group already exists (sync from files)")
             return@processTemplateGroupFiles true
         }
         if (!filter(groupToCreate)) {

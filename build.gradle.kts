@@ -31,6 +31,11 @@ intellijPlatform {
             sinceBuild = "253"
             untilBuild = "262.*"
         }
+        changeNotes = """
+            <ul>
+                <li>Added support for IntelliJ IDEA 2026.2</li>
+            </ul>
+        """.trimIndent()
     }
     pluginVerification {
         ides {
